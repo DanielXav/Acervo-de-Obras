@@ -17,13 +17,13 @@ public class Autor {
 	private Long id;
 	private String nome;
 	private String pais;
-	private Date anoNasc;
+	private Integer anoNasc;
 	private String cpf;
 	
 	public Autor() {
 	}
 
-	public Autor(Long id, String nome, String pais, Date anoNasc, String cpf) {
+	public Autor(Long id, String nome, String pais, Integer anoNasc, String cpf) {
 		this.id = id;
 		this.nome = nome;
 		this.pais = pais;
@@ -55,11 +55,11 @@ public class Autor {
 		this.pais = pais;
 	}
 
-	public Date getAnoNasc() {
+	public Integer getAnoNasc() {
 		return anoNasc;
 	}
 
-	public void setAnoNasc(Date anoNasc) {
+	public void setAnoNasc(Integer anoNasc) {
 		this.anoNasc = anoNasc;
 	}
 
