@@ -1,15 +1,31 @@
 package com.danielxavier.acervo.entities;
-
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_obra")
 public class Obra {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String descricao;
 	private Date dataPublicacao;
-	private List<Autor> autores;
+	
+	@ManyToMany()
+	@JoinTable(name = "tb_obra_autor", joinColumns = @JoinColumn(name = "obra_id"), inverseJoinColumns = @JoinColumn(name = "autor_id"))
+	private Set<Autor> autores = new HashSet<>();
 	
 	public Obra() {
 	}
@@ -53,7 +69,7 @@ public class Obra {
 		this.dataPublicacao = dataPublicacao;
 	}
 
-	public List<Autor> getAutores() {
+	public Set<Autor> getAutores() {
 		return autores;
 	}
 	
