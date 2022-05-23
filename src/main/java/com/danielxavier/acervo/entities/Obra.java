@@ -1,6 +1,7 @@
 package com.danielxavier.acervo.entities;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class Obra {
 	
 	@ManyToMany()
 	@JoinTable(name = "tb_obra_autor", joinColumns = @JoinColumn(name = "obra_id"), inverseJoinColumns = @JoinColumn(name = "autor_id"))
-	private Set<Autor> autores = new HashSet<>();
+	Set<Autor> autores = new HashSet<>();
 	
 	public Obra() {
 	}
@@ -71,6 +72,23 @@ public class Obra {
 
 	public Set<Autor> getAutores() {
 		return autores;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Obra other = (Obra) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 }
