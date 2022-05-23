@@ -1,4 +1,4 @@
-package com.danielxavier.acervo;
+package com.danielxavier.acervo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
