@@ -4,6 +4,7 @@ import com.danielxavier.acervo.entities.Autor;
 
 public class AutorDTO {
 	
+	private Long id;
 	private String nome;
 	private String pais;
 	private Integer anoNasc;
@@ -12,7 +13,8 @@ public class AutorDTO {
 	public AutorDTO() {
 	}
 
-	public AutorDTO(String nome, String pais, Integer anoNasc, String cpf) {
+	public AutorDTO(Long id, String nome, String pais, Integer anoNasc, String cpf) {
+		this.id = id;
 		this.nome = nome;
 		this.pais = pais;
 		this.anoNasc = anoNasc;
@@ -20,10 +22,20 @@ public class AutorDTO {
 	}
 	
 	public AutorDTO(Autor entity) {
+		id = entity.getId();
 		nome = entity.getNome();
 		pais = entity.getPais();
 		anoNasc = entity.getAnoNasc();
 		cpf = entity.getCpf();
+	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {

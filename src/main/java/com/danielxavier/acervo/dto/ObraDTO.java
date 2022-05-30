@@ -27,6 +27,13 @@ public class ObraDTO {
 		this.dataPublicacao = dataPublicacao;
 	}
 	
+	public ObraDTO(Obra entity) {
+		id = entity.getId();
+		nome = entity.getNome();
+		descricao = entity.getDescricao();
+		dataPublicacao = entity.getDataPublicacao();
+	}
+	
 	public ObraDTO(Obra entity, Set<Autor> autores) {
 		id = entity.getId();
 		nome = entity.getNome();
